@@ -77,10 +77,15 @@ public class CompanyExcercise {
         // logika usuwania pracownika
     }
 
-    public void printAllEmployees() {
+    //Metoda uzywa petli foreach i powoduje NullPointerException, gdy pracownikow jest mniej niz maksymalna liczba
+    public void printAllEmployeesBad() {
         //logika wyswietlania pracownikow
-        myCompany.printEmployees();
+        myCompany.printEmployeesBad();
 
+    }
+
+    public void printAllEmployees(){
+        myCompany.printEmployees();
     }
 
 }

@@ -19,7 +19,8 @@ public class MatrixExcercise {
         macierz2.printMatrix();
 
         //DODAWANIE MACIERZY
+        System.out.println("DODAWANIE");
         Matrix wynik = macierz1.addMatrix(macierz2);
-        
+        wynik.printMatrix();
     }
 }

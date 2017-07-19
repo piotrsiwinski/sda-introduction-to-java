@@ -1,10 +1,6 @@
 package oop.arrayoperations;
-
 import java.util.Scanner;
 
-/**
- * Created by RENT on 2017-07-18.
- */
 public class Matrix {
     private int[][] macierz;
     private int m;
@@ -34,10 +30,10 @@ public class Matrix {
         this.n = n;
     }
 
-    public Matrix() {
-        m = 3;
-        n = 3;
-        macierz = new int[m][n];
+    public Matrix(int m, int n) {
+        this.m = m;
+        this.n = n;
+        this.macierz = new int[m][n];
     }
 
     //metoda do wypelniania wartosciami
@@ -50,7 +46,6 @@ public class Matrix {
             for (int j = 0; j < n; j++) {
                 macierz[i][j] = sc.nextInt();
             }
-
         }
     }
 
@@ -70,15 +65,46 @@ public class Matrix {
     //zwracamy wynikowa macierz
 
     public Matrix addMatrix(Matrix drugaMacierz) {
-        Matrix wynikowa = new Matrix();
+        Matrix wynikowa = new Matrix(m, n);
+        if (this.m == drugaMacierz.getM() && this.n == drugaMacierz.getN()) {
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                wynikowa.getMacierz()[i][j] = this.macierz[i][j] + drugaMacierz.getMacierz()[i][j];
+
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    wynikowa.macierz[i][j] = this.macierz[i][j] + drugaMacierz.macierz[i][j];
+                }
             }
+
+            return wynikowa;
+        } else {
+            //zwroci pusta macierz
+            return wynikowa;
+            //lub return null; -> wtedy w przypadku dodawania dwoch macierzy o roznych
+            //wymiarach zostanie zwrocony null (moze sie pojawic null pointer exception)
         }
 
-        return wynikowa;
+
+    }
+
+    //napisac metode do odejmowania dwoch macierzy
+    public Matrix substractMatrix(Matrix drugaMacierz) {
+        Matrix wynikowa = new Matrix(m, n);
+        if (this.m == drugaMacierz.getM() && this.n == drugaMacierz.getN()) {
+
+
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    wynikowa.macierz[i][j] = this.macierz[i][j] - drugaMacierz.macierz[i][j];
+                }
+            }
+
+            return wynikowa;
+        } else {
+            //zwroci pusta macierz
+            return wynikowa;
+            //lub return null; -> wtedy w przypadku dodawania dwoch macierzy o roznych
+            //wymiarach zostanie zwrocony null (moze sie pojawic null pointer exception)
+        }
 
     }
 

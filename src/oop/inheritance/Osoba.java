@@ -6,6 +6,16 @@ public class Osoba {
     private String nazwisko;
     private int wiek;
 
+    public int getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(int pesel) {
+        this.pesel = pesel;
+    }
+
+    private int pesel;
+
     public Osoba() {
     }
 
@@ -15,7 +25,29 @@ public class Osoba {
         this.wiek = wiek;
     }
 
-    
+   @Override
+    public String toString(){
+        return "Jestem osoba i nazywam sie: " + imie + " " + nazwisko;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+        boolean czyRowne = false;
+        Osoba drugaOsoba = (Osoba) obj;
+        if(obj instanceof Osoba){
+//            Osoba drugaOsoba = (Osoba) obj;
+            czyRowne = this.pesel ==  drugaOsoba.pesel;
+
+        }
+        return czyRowne;
+    }
+
+    public void toString(int wiek){
+
+    }
 
     public String getImie() {
         return imie;

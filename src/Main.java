@@ -2,32 +2,65 @@
 import oop.abstractExample.Figura;
 import oop.abstractExample.Kwadrat;
 import oop.abstractExample.Prostokat;
-import oop.arrayoperations.MatrixExcercise;
 
-import oop.inheritance.Osoba;
-import oop.inheritance.Pracownik;
-import oop.inheritance.Student;
+import java.util.Scanner;
 
 
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean czyWyjsc = false;
 
-        Figura[] figury = new Figura[5];
-        figury[0] = new Kwadrat();
-        figury[1] = new Prostokat();
-        figury[2] = new Prostokat();
-        figury[3] = new Kwadrat();
-        figury[4] = new Prostokat();
+        Figura[] figury = new Figura[10];
+        int liczbaFigur = 0;
 
 
-        for(Figura f : figury){
-            f.ObliczPole();
+        while (czyWyjsc == false) {
+            System.out.println("1.Dodawanie kwadratu");
+            System.out.println("2.Dodawanie prostokata");
+            System.out.println("3.Oblicz wszystkie pola");
+            int wybor = scanner.nextInt();
+            Figura jakasFigura = null;
+
+            switch (wybor) {
+                case 1: {
+                    System.out.println("Podaj bok kwadratu");
+                    int bok = scanner.nextInt();
+                    jakasFigura = new Kwadrat(bok);
+                    figury[liczbaFigur] = jakasFigura;
+                    liczbaFigur++;
+                    break;
+                }
+                case 2: {
+                    System.out.println("Podaj boki prostokata");
+                    int bokPierwszy = scanner.nextInt();
+                    int bokDrugi = scanner.nextInt();
+                    jakasFigura = new Prostokat(bokPierwszy, bokDrugi);
+                    figury[liczbaFigur] = jakasFigura;
+                    liczbaFigur++;
+
+//                    figury[liczbaFigur++] = new Prostokat(bokPierwszy, bokPierwszy);
+                    break;
+                }
+                case 3: {
+                    System.out.println("Pola figur to: ");
+                    for (int i = 0; i < liczbaFigur; i++) {
+                        Figura figuraZTablicy = figury[i];
+                        double pole = figuraZTablicy.ObliczPole();
+                        System.out.println("Licze pole dla: ");
+                        figuraZTablicy.Opisz();
+                        System.out.println("Pole to :" + pole);
+                    }
+                    break;
+                }
+                case 0: {
+                    System.out.println("Wychodze z programu");
+                    czyWyjsc = true;
+                    break;
+                }
+            }
         }
-
-
-
-
 
 
 //        Osoba os1 = new Osoba();
@@ -79,7 +112,6 @@ public class Main {
 //        System.out.println(nowak);
 
 
-
 //        Student stPrawa = new Student();
 //
 //        stPrawa.OpiszStudenta();
@@ -109,8 +141,6 @@ public class Main {
 //        {
 //            System.out.println("Nie rowne");
 //        }
-
-
 
 
     }

@@ -1,19 +1,39 @@
 package oop.abstractExample;
 
-/**
- * Created by RENT on 2017-07-21.
- */
+
 public class Kwadrat extends Figura {
 
-    private int a;
+    private double a;
+
+    public Kwadrat() {
+
+    }
+
+    public Kwadrat(int a) {
+        this.a = a;
+    }
+
+
+    public double getA() {
+        return a;
+    }
+
+    public void setA(double a) {
+        this.a = a;
+    }
+
     @Override
     public double ObliczPole() {
-        System.out.println("POLE KWADRATU");
-        return a*a;
+        return a *a ;
     }
 
     @Override
     public double ObliczObwod() {
-        return 4*a;
+        return 4 * a;
+    }
+
+    @Override
+    public void Opisz() {
+        System.out.println("Jestem kwadratem");
     }
 }

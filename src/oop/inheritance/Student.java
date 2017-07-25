@@ -7,9 +7,10 @@ public class Student extends Osoba {
     private int index;
     private String kierunek;
     private String uczelnia;
+    public static int liczbaStudentow = 0;
 
     public Student(){
-
+        liczbaStudentow++;
     }
 
     public Student(String imie, String nazwisko, int wiek){

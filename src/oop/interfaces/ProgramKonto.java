@@ -12,6 +12,7 @@ public class ProgramKonto {
         } catch (Exception e) {
             System.out.println("Wystapil blad: " + e.getMessage());
         }
+        System.out.println("Test");
 
 
         MaleKonto mojeMaleKonto = new MaleKonto(200, 500);
